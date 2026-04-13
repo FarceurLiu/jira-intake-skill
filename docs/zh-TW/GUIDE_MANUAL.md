@@ -1,7 +1,7 @@
 # 完全不懂技術也能用：手動建單流程
 
 不需要 API、不需要設定任何東西。  
-你只需要 Claude（或 Codex），和一個能開 Jira 的瀏覽器。
+你只需要 Claude（或 Codex），以及一個能開 Jira 的瀏覽器。
 
 ## 開始前：先安裝 skill
 
@@ -155,4 +155,4 @@ A：可以。把相同的文字貼給 Codex，請它用 jira-intake 整理，會
 **Q：我想讓 Claude 或 Codex 直接幫我建 Jira，不想手動貼怎麼辦？**  
 A：需要你目前使用的環境有可寫入 Jira 的能力，也就是 Jira MCP，或由工程師做一次性的 API 設定。  
 完成後你只需要說「幫我建到 Jira」，其他都自動處理。  
-詳細設定方式請找你們的工程師，或看 `ONBOARDING.md` 的路徑 B/C。
+詳細設定方式可看 `ONBOARDING.md` 的路徑 B/C。

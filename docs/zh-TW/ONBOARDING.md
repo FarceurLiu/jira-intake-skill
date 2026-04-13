@@ -1,4 +1,4 @@
-# 新同事上手順序
+# 上手順序
 
 ## 開始前：先安裝 skill
 
@@ -35,7 +35,7 @@ git clone https://github.com/FarceurLiu/jira-intake-skill.git "${CODEX_HOME:-$HO
 │   └── 我沒有 Jira MCP，需要用 API 接
 │       → 路徑 C：需要一次性技術設定，看下方
 │
-└── 我是負責設定這個工具的工程師 / 管理員
+└── 我要協助設定或調整這個工具
     → 路徑 D：維護者流程，看下方
 ```
 
@@ -83,13 +83,13 @@ git clone https://github.com/FarceurLiu/jira-intake-skill.git "${CODEX_HOME:-$HO
 
 ---
 
-## 路徑 D：維護者 / 管理員
+## 路徑 D：維護者流程
 
 1. 確認 `SKILL.md` 的核心 workflow 與讀取導航是否符合團隊需求
 2. 確認 `references/` 內的判斷規則是否符合團隊需求
 3. 視需要填入 `references/organization-rules-template.md`（priority 和 assignee 的自訂規則）
 4. 確認 `config/team-config.private.json` 有正確的欄位 id
-5. 定期更新 `references/assignee-rules.md` 反映組織異動
+5. 規則調整後，再同步更新 `references/assignee-rules.md`
 
 ---
 

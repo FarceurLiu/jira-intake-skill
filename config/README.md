@@ -6,7 +6,7 @@
 公開範本，可放進 git。
 
 ### `team-config.private.sample.json`
-私有設定範本，給團隊複製成自己的私有版本。
+私有設定範本，給使用者複製成自己的私有版本。
 
 ### `team-config.private.json`
 實際執行用，不要 commit。
@@ -26,7 +26,7 @@
 
 ## 不要放進 git 的內容
 
-- 真實 Jira 網址（若屬內部敏感）
+- 真實 Jira 網址（若屬敏感）
 - 真實 bot email
 - 真實 token
 - 真實 accountId
