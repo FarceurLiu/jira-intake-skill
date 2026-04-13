@@ -206,4 +206,4 @@ Connected mode presents human-readable choices only. Internal identifiers such a
 
 ## License
 
-Apache 2.0
+MIT
