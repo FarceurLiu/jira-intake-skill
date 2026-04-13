@@ -25,20 +25,8 @@
 
 ## 開源邊界
 
-這個 repo 若要公開，應只保留：
-- 通用 intake 規則
-- 通用範例
-- 可公開的 config sample
-- 可重用的 scripts
-
-不應放進公開 repo 的內容：
-- 私有 Jira 設定
-- 真實 accountId mapping
-- 能識別特定組織結構的 workflow 規則
-- 真實客戶回報、截圖、交易資訊、事故內容
-- 從正式環境直接複製且未去識別的案例
-
-這個 repo 應保持通用，不要把組織專屬 mapping 或真實案例放進公開樹。
+這個 repo 應保持開源安全與通用性。
+不要放入私有 Jira 設定、真實 accountId mapping、可識別組織結構的 workflow 規則，以及真實客戶或正式環境案例。
 
 ---
 

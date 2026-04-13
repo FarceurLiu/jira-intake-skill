@@ -23,17 +23,8 @@ Direct Jira execution is optional and only runs after explicit user confirmation
 
 ## Open-source boundary
 
-This repo is intended to be open-source safe.
-It should contain only generic intake logic, generic examples, public config samples, and reusable scripts.
-
-It must not contain:
-- private Jira config
-- real accountId mappings
-- internal workflow rules that identify your team structure
-- real customer reports, screenshots, transaction references, or incident details
-- any example copied from production systems without redaction
-
-Keep this repo generic. Do not add organization-specific mappings or real cases into the public tree.
+This repo is intended to stay open-source safe.
+Keep it generic: no private Jira config, no real accountId mappings, no organization-specific workflow rules, and no real customer or production examples.
 
 ## At a glance
 
@@ -73,7 +64,7 @@ Useful for:
 - PMs
 - QAs
 - designers
-- support / ops teammates
+- cross-functional teammates
 - engineers who want cleaner intake before triage
 
 You do **not** need Jira API knowledge to use draft mode.
@@ -212,17 +203,6 @@ Connected mode presents human-readable choices only. Internal identifiers such a
 - contributing: `CONTRIBUTING.md`
 - security: `SECURITY.md`
 
-## Suggested public repo contents
-
-For a lean public release, keep the repo focused on:
-- `README.md` and `README.zh-TW.md`
-- `SKILL.md`
-- `references/`
-- `scripts/`
-- `templates/`
-- `config/` public samples only
-- `tests/intake-cases.md`
-- `SECURITY.md`, `CONTRIBUTING.md`, `LICENSE`
 
 ## License
 
