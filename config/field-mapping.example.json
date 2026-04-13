@@ -1,0 +1,22 @@
+{
+  "_notes": {
+    "sprintField": "Use jira_lookup_metadata.py fields to find the sprint customfield ID (commonly customfield_10020). Value must be an integer sprint ID, not an object. Example: 'customfield_10020': 1569",
+    "assigneeField": "Value must be accountId string, not display name. Use jira_lookup_metadata.py members to look up accountId."
+  },
+  "priorityField": "priority",
+  "sprintField": "customfield_10020",
+  "assigneeField": "assignee",
+  "componentField": "components",
+  "platformLabelMap": {
+    "iOS": "ios",
+    "Android": "android",
+    "Web": "web"
+  },
+  "typeMap": {
+    "bug": "Bug",
+    "feature request": "Task",
+    "spec correction": "Task",
+    "UX adjustment": "Task",
+    "content copy change": "Task"
+  }
+}

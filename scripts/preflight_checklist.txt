@@ -1,0 +1,24 @@
+PRE-FLIGHT CHECKLIST
+
+--- INTAKE READINESS ---
+[ ] raw feedback includes page or module
+[ ] source of truth for expected behavior identified
+[ ] actual behavior exists
+[ ] expected behavior exists
+[ ] version / build / environment exists when relevant
+[ ] repro steps or trigger condition exists
+[ ] video evidence has timestamp when relevant
+[ ] issue type is clear enough
+
+--- BEFORE JIRA EXECUTION (irreversible) ---
+[ ] payload validated with validate_jira_payload.py
+[ ] Jira API token available and tested
+[ ] team private config selected (not the example file)
+[ ] target project key confirmed
+[ ] target sprint confirmed (or backlog confirmed intentionally)
+[ ] assignee accountId confirmed (not just a display name)
+
+--- BEFORE STATUS TRANSITION (irreversible) ---
+[ ] run transition_jira_issue.py --dry-run first and verify resolved transition id
+[ ] confirm the target status is correct for this team's workflow
+[ ] transition id checked and matched against available transitions

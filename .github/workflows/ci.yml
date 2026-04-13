@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  basic-checks:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Check setup script syntax
+        run: bash -n scripts/setup_jira_token.sh
+
+      - name: Compile Python scripts
+        run: python3 -m py_compile scripts/*.py

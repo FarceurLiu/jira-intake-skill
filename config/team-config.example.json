@@ -1,0 +1,25 @@
+{
+  "baseUrl": "https://your-domain.atlassian.net",
+  "projectKey": "APP",
+  "email": "jira-bot@example.com",
+  "apiTokenEnv": "JIRA_API_TOKEN",
+  "defaultIssueType": "Task",
+  "defaultLabels": ["feedback-intake"],
+  "defaultProjectKey": "",
+  "defaultSprintStrategy": "ask",
+  "defaultAssigneeId": "",
+  "_comment_transition_map": "Optional example only. Transition ids and status names vary by Jira workflow. Keep this empty until you verify valid transitions for your own project.",
+  "statusTransitionMap": {},
+  "_comment_board_sprint": "Optional example only. Run 'boards' mode to get boardId. Run 'sprints <boardId>' to list sprints. sprintField is often customfield_10020 but should be verified with 'fields' mode for your Jira instance.",
+  "defaultBoardId": "",
+  "sprintField": "customfield_10020",
+  "_comment_assignee": "Optional example only. Run 'members' mode to get real accountId values per person. Adapt the mapping to your own team structure, modules, and ownership rules.",
+  "assigneeMap": {
+    "iOS": "",
+    "Android": "",
+    "Web": "",
+    "Backend": "",
+    "Design": "",
+    "PM": ""
+  }
+}

@@ -1,0 +1,21 @@
+.DS_Store
+*.log
+*.tmp
+*.swp
+.dist/
+
+# Private config files — any file with "private" in the name must never be
+# committed. Real tokens, accountIds, and internal mappings belong here only.
+**/*.private.json
+**/*.private.*.json
+
+# Environment variable files — at any directory depth
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Local maintainer-only archive, not part of the public repo
+.local-archive/
