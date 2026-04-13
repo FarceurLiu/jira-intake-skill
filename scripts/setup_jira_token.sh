@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_PATH="$SCRIPT_DIR/../config/team-config.private.json"
-SAMPLE_PATH="$SCRIPT_DIR/../config/team-config.private.sample.json"
+SAMPLE_PATH="$SCRIPT_DIR/../config/team-config.example.json"
 ENV_PATH="$SCRIPT_DIR/../config/.env"
 DONE_MARKER="/tmp/jira_intake_setup_done"
 
@@ -21,7 +21,7 @@ if ! command -v python3 >/dev/null 2>&1; then
   exit 1
 fi
 
-# 若 private config 不存在，從 sample 複製
+# 若 private config 不存在，從公開範本複製
 if [[ ! -f "$CONFIG_PATH" ]]; then
   if [[ -f "$SAMPLE_PATH" ]]; then
     cp "$SAMPLE_PATH" "$CONFIG_PATH"

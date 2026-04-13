@@ -1,9 +1,9 @@
-# Organization Rules Template
+# 組織規則模板
 
-Use this file as a private template when adapting the skill for your own environment.
-Do not commit real owners, real mappings, or organization-identifying rules into the public repo.
+將技能適配到你的團隊環境時，可用這份文件作為私有模板。
+不要把真實負責人、真實對應表，或可識別組織的規則提交到公開 repo。
 
-## 1. Priority 判準
+## 1. 優先序判準
 
 ### P0
 - 定義：
@@ -27,25 +27,25 @@ Do not commit real owners, real mappings, or organization-identifying rules into
 - 例子：
 - 是否屬於低風險優化：
 
-## 2. Assignee 規則
+## 2. 負責人規則
 
 ### 依平台
 - iOS ->
 - Android ->
 - Web ->
-- Backend ->
-- CMS / Admin ->
+- 後端 ->
+- 內容管理 / 管理後台 ->
 
 ### 依模組
-- Auth ->
-- Onboarding ->
-- Form ->
-- Data View ->
-- Settings ->
-- Notification ->
+- 登入 ->
+- 新手引導 ->
+- 表單 ->
+- 資料檢視 ->
+- 設定 ->
+- 通知 ->
 
 ### 依任務型態
-- Bug ->
+- 錯誤 ->
 - 規格修正 ->
 - 新需求 ->
 - 文案 ->
@@ -62,9 +62,9 @@ Do not commit real owners, real mappings, or organization-identifying rules into
 ## 4. 發派阻擋條件
 
 以下情況一律先補件，不直接發派：
-- 
-- 
-- 
+-
+-
+-
 
 ## 5. 可直接發派的最低資訊
 

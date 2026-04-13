@@ -1,43 +1,43 @@
-# Examples
+# 範例
 
-## Example 1: Video-only QA report
+## 範例 1：只有影片的 QA 回報
 
-### Raw input
-Title: iOS onboarding screen collapses unexpectedly when re-entering the page
-Description: attached video only
+### 原始輸入
+標題：iOS 新手引導頁面重新進入時異常收合
+描述：只有附影片
 
-### Intake judgment
-- Type: unclear, likely bug
-- Dispatch status: blocked
-- Why: actual behavior is partially visible, but expected behavior and exact affected element are unclear
+### 收單判斷
+- 類型：不明，可能是錯誤
+- 發派狀態：`blocked`
+- 原因：影片可能看得出部分目前行為，但預期行為與受影響元件不清楚
 
-### Follow-up question (ask only the most blocking one)
-- Which section or component is collapsing, and what should it do instead?
+### 追問問題（只問最關鍵的一題）
+- 是哪個區塊或元件在收合？它原本應該怎麼表現？
 
-## Example 2: Title says page has B
+## 範例 2：標題說頁面有某元素
 
-### Raw input
-Title: Home page has info banner
-Description: simple screenshot
+### 原始輸入
+標題：首頁出現資訊橫幅
+描述：簡單截圖
 
-### Intake judgment
-- Type: unclear
-- Dispatch status: blocked
-- Why: unclear whether the info banner is incorrectly shown or should have been added but is missing in some states
+### 收單判斷
+- 類型：不明
+- 發派狀態：`blocked`
+- 原因：不清楚問題是「不該出現這個橫幅」，還是「某些情境應該出現但沒有」
 
-### Follow-up question (ask only the most blocking one)
-- Is the problem that this page should not show this banner, or that it is missing where it should appear?
+### 追問問題（只問最關鍵的一題）
+- 問題是這個頁面不應該顯示橫幅，還是它在應該出現的地方缺失？
 
-## Example 3: C page should add B
+## 範例 3：某頁面應新增某元件
 
-### Raw input
-Title: Detail page should show status badge
-Description: stakeholder says this should be added
+### 原始輸入
+標題：詳情頁應顯示狀態標記
+描述：利害關係人說應該新增
 
-### Intake judgment
-- Type: feature request or spec correction
-- Dispatch status: ready only after expected placement and behavior are clear
+### 收單判斷
+- 類型：新需求或規格修正
+- 發派狀態：只有在位置與行為清楚後才可發派
 
-### Required normalization
-- rewrite title to explicit action
-- specify placement, trigger, and acceptance criteria
+### 必要標準化
+- 將標題改寫為明確動作
+- 指定放置位置、觸發條件與驗收條件

@@ -134,6 +134,41 @@ def build_api_url(base_url: str, endpoint: str) -> str:
     return f"{base_url.rstrip('/')}/{endpoint.lstrip('/')}"
 
 
+def build_issue_url(base_url: str, issue_key: str) -> str:
+    """Build the human-facing Jira issue URL."""
+    return build_api_url(base_url, f"browse/{issue_key}")
+
+
+def summarize_jira_response(
+    response: Dict[str, Any],
+    *,
+    base_url: str,
+    issue_key: str = "",
+    resource: str = "issue",
+    verbose: bool = False,
+) -> Dict[str, Any]:
+    """Return a safe, compact summary of a Jira write response."""
+    summary: Dict[str, Any] = {"ok": True}
+    key = issue_key or str(response.get("key", "")).strip()
+    item_id = str(response.get("id", "")).strip()
+    status = response.get("status")
+
+    if key:
+        summary["issueKey"] = key
+        summary["issueUrl"] = build_issue_url(base_url, key)
+
+    if item_id:
+        summary["commentId" if resource == "comment" else "id"] = item_id
+
+    if status is not None:
+        summary["status"] = status
+
+    if verbose:
+        summary["response"] = response
+
+    return summary
+
+
 def build_headers(config: Dict[str, Any], *, include_content_type: bool = False) -> Dict[str, str]:
     """Build the HTTP headers required for Jira Cloud Basic Auth."""
     base_url = str(config.get("baseUrl", "")).strip()

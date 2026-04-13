@@ -83,13 +83,13 @@
 用任何文字編輯器打開剛才建立的 `.env` 檔案，填入以下內容：
 
 ```
-JIRA_API_TOKEN=貼上你剛才複製的token
+JIRA_API_TOKEN=<貼上你剛才複製的-token>
 ```
 
-例如（這是假的 token，你的會不一樣）：
+例如（這是佔位符，你的會不一樣）：
 
 ```
-JIRA_API_TOKEN=your-generated-token-here
+JIRA_API_TOKEN=<your-api-token>
 ```
 
 存檔。完成。

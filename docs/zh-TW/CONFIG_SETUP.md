@@ -21,15 +21,15 @@
 
 | 欄位 | 說明 | 沒填時的行為 |
 |------|------|-------------|
-| `defaultBoardId` | 預設看板 ID | skill 會列出所有看板請你選 |
+| `defaultBoardId` | 預設看板 ID | 技能會列出所有看板請你選 |
 | `sprintField` | Sprint 自訂欄位 ID，通常是 `customfield_10020` | 建立的任務不會帶 sprint |
-| `assigneeMap` | 平台 / 模組 → accountId 對應表 | skill 只給角色建議，不自動帶 assignee |
-| `statusTransitionMap` | 邏輯 key → transition ID 對應表 | 無法自動 transition |
+| `assigneeMap` | 平台 / 模組 → accountId 對應表 | 技能只給角色建議，不自動帶負責人 |
+| `statusTransitionMap` | 邏輯鍵 → 狀態轉換 ID 對應表 | 無法自動轉換狀態 |
 | `defaultIssueType` | 預設建立類型，例如 `Task` / `Bug` | 預設用 `Task` |
-| `defaultLabels` | 每張單自動加的 label | 不加 label |
+| `defaultLabels` | 每張單自動加的標籤 | 不加標籤 |
 | `defaultProjectKey` | 預設 Jira 專案代碼 | 每次建單時詢問 |
-| `defaultSprintStrategy` | `ask`（詢問）或 `latest-active`（自動選最近 sprint） | `ask` |
-| `defaultAssigneeId` | 預設 assignee 的 accountId | 每次建單時詢問 |
+| `defaultSprintStrategy` | `ask`（詢問）或 `latest-active`（自動選最近衝刺） | `ask` |
+| `defaultAssigneeId` | 預設負責人的 accountId | 每次建單時詢問 |
 
 ---
 
@@ -38,7 +38,7 @@
 ### 步驟 1：複製範本
 
 ```bash
-cp config/team-config.private.sample.json config/team-config.private.json
+cp config/team-config.example.json config/team-config.private.json
 ```
 
 ### 步驟 2：填入必填欄位
@@ -126,12 +126,12 @@ python3 scripts/jira_lookup_metadata.py config/team-config.private.json fields
 
 | 缺少的欄位 | skill 的行為 |
 |------------|-------------|
-| 沒有 config 檔 | 跑完 intake，輸出手動建單用的草稿，不嘗試建立 Jira |
+| 沒有設定檔 | 跑完收單，輸出手動建單用的草稿，不嘗試建立 Jira |
 | 有 config 但缺 `baseUrl` / `projectKey` | 無法建立 Jira，輸出草稿並提示缺少設定 |
 | `assigneeMap` 為空 | 給出角色建議（例如「建議指派 iOS 工程師」），不帶 accountId |
 | `defaultBoardId` 未設定 | 列出可用看板，請使用者選擇後繼續 |
 | `sprintField` 未設定 | 建立任務時不帶 sprint，之後可手動加 |
-| `statusTransitionMap` 未設定 | 建立任務後不自動 transition，只建單 |
+| `statusTransitionMap` 未設定 | 建立任務後不自動轉換狀態，只建單 |
 
 **原則**：缺設定時往「輸出草稿 + 提示缺啥」方向降級，不直接報錯中斷。
 

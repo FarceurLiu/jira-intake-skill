@@ -74,7 +74,7 @@ git clone https://github.com/FarceurLiu/jira-intake-skill.git "${CODEX_HOME:-$HO
 
 **手動設定：**
 1. 申請 Jira API token → 看 [`JIRA_TOKEN_SETUP.md`](./JIRA_TOKEN_SETUP.md)
-2. 建立私有 config → 複製 `config/team-config.private.sample.json`，填入真實值
+2. 建立私有設定檔 → 複製 `config/team-config.example.json` 成 `config/team-config.private.json`，填入真實值
 3. 設定環境變數 `JIRA_API_TOKEN`
 4. 測試連線 → `python3 scripts/jira_lookup_metadata.py config/team-config.private.json projects`
 5. 填入 `assigneeMap`、`defaultBoardId`、`sprintField`
@@ -85,9 +85,9 @@ git clone https://github.com/FarceurLiu/jira-intake-skill.git "${CODEX_HOME:-$HO
 
 ## 路徑 D：維護者流程
 
-1. 確認 `SKILL.md` 的核心 workflow 與讀取導航是否符合團隊需求
+1. 確認 `SKILL.md` 的核心流程與讀取導航是否符合團隊需求
 2. 確認 `references/` 內的判斷規則是否符合團隊需求
-3. 視需要填入 `references/organization-rules-template.md`（priority 和 assignee 的自訂規則）
+3. 視需要填入 `references/organization-rules-template.md`（優先序和負責人的自訂規則）
 4. 確認 `config/team-config.private.json` 有正確的欄位 id
 5. 規則調整後，再同步更新 `references/assignee-rules.md`
 

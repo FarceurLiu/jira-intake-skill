@@ -1,28 +1,29 @@
-# UI and Animation Rules
+# UI 與動畫規則
 
-Use this file for UI-heavy reports, component interpretation, animation behavior, and implementation-scope judgment.
+當反饋涉及 UI、元件解讀、動畫行為或實作範圍判斷時，使用此文件。
 
-## UI and component rules
+## UI 與元件規則
 
-- If the report identifies a page and UI component, normalize the requested action as one of: remove, add, adjust, fix, investigate.
-- If the report uses vague UI names such as 「叉叉」「那個東西」「那邊」「那個按鈕」, stop and ask for page, component, and what looks wrong.
-- For micro UI adjustments such as spacing, padding, color, font weight, radius, animation feel, alignment, require at least: page, component, current state, target state, source of truth, acceptance method. Otherwise classify as `blocked` or `needs-product-decision`.
-- When the issue mentions a background image seam or tiling artifact, ask first whether the asset is intended to repeat as tiles or display as a single full-screen image.
+- 若反饋已指出頁面與 UI 元件，將動作標準化為：移除、新增、調整、修正、調查。
+- 若反饋使用模糊 UI 名稱，例如「叉叉」「那個東西」「那邊」「那個按鈕」，先停下來詢問頁面、元件，以及目前看起來哪裡不對。
+- 微型 UI 調整，例如間距、內距、顏色、字重、圓角、動畫感、對齊，至少需要頁面、元件、目前狀態、目標狀態、依據來源、驗收方式。否則標記為 `blocked` 或 `needs-product-decision`。
+- 若問題提到背景圖有拼接感或平鋪痕跡，先詢問該素材原本是要平鋪重複，還是單張全螢幕顯示。
 
-## Native vs custom component rules
+## 原生與自訂元件規則
 
-- When a request says "switch to native style", verify whether the current component is already native.
-- If the screenshot or description indicates a custom component, state clearly that this is a component replacement, not a simple style tweak.
-- Use screenshots not only as evidence, but also to infer whether a component is native or custom. This affects effort and risk.
+- 當需求提到「改成原生樣式」時，先確認目前元件是否已經是原生元件。
+- 若截圖或描述顯示目前是自訂元件，要明確標示這是元件替換，不是單純樣式微調。
+- 截圖不只作為證據，也要用來判斷元件是原生或自訂；這會影響工作量與風險。
 
-## Animation rules
+## 動畫規則
 
-- For animation issues, require three things: current behavior, expected behavior, and start/end states of each concurrent animation.
-- If any of the three is missing, mark as `blocked` and ask the single most blocking question.
-- If the reporter does not know the target animation spec, switch to: engineer proposes initial value, reporter validates after implementation.
-- Do not hardcode animation numbers in the skill. Let engineering choose a reasonable starting point by animation type.
+- 將動畫反饋分成「單純速度／節奏問題」與「狀態轉換／多段動畫問題」。
+- 單純速度或節奏問題，例如「太快」「太慢」「不順」「背景跑太快」，只要能辨識頁面／元件與目前行為，就先產出草稿。若沒有目標規格，改走「工程先提出初始值，回報者或產品驗收」。
+- 狀態轉換或多段動畫問題，才要求目前行為、預期行為，以及每個並行動畫的開始／結束狀態。
+- 若狀態轉換必要資訊缺失，標記為 `blocked`，並只問一個最關鍵的問題。
+- 不要在技能內硬寫動畫秒數。讓工程依動畫類型選擇合理初始值。
 
-## Cross-ticket and cross-platform rules
+## 跨票與跨平台規則
 
-- If similar items appear across iOS, Android, Web, or API, first decide whether they are separate implementation issues, a shared spec issue, or a shared backend/data root cause.
-- If the new item overlaps strongly with an existing ticket in page, component, Figma node, attachment, wording, or symptom, mark it as `possible-duplicate` or `possible-follow-up-to-existing-issue`.
+- 若類似問題同時出現在 iOS、Android、Web 或 API，先判斷它們是各平台獨立實作問題、共用規格問題，還是後端／資料根因。
+- 若新項目在頁面、元件、Figma 節點、附件、措辭或症狀上與既有任務高度重疊，標記為 `possible-duplicate` 或 `possible-follow-up-to-existing-issue`。

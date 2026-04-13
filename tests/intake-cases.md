@@ -1,195 +1,248 @@
-# Intake Regression Cases
+# 收單回歸案例
 
-Use these cases to verify that refactors do not weaken intake judgment.
-All examples in this file must remain synthetic and must not be copied from real company or customer cases.
+用這些案例確認重構不會削弱收單判斷。
+本文件所有案例都必須是合成案例，不得直接複製真實公司或客戶案例。
 
-## How to use
+## 使用方式
 
-For each case, verify:
-- whether the skill drafts immediately or asks one blocking question
-- whether the type/classification is reasonable
-- whether the priority is in the right range
-- whether the draft flags `blocked`, `needs-product-decision`, `needs-spec`, or duplicate risk correctly
-- whether the reply stays concise and uses the required bullet-field draft format
+每個案例都要確認：
+- 技能會直接產出草稿，還是只問一個關鍵補充問題
+- 任務類型判斷是否合理
+- 優先序是否落在合理範圍
+- 草稿是否正確標記 `blocked`、`needs-product-decision`、`needs-spec` 或重複風險
+- 回覆是否簡潔，並使用必要的條列欄位格式
 
 ---
 
-## Case 1: Clear iOS UI bug
+## 案例 1：明確的 iOS UI 錯誤
 
-### Raw input
+### 原始輸入
 > iOS 設定頁的主圖示目前靠左，應該要置中，附截圖。
 
-### Expected judgment
-- Draft immediately
-- Type: UI bug
-- Priority: P2 or P3 depending on impact
-- Note evidence as screenshot
-- No extra follow-up question
+### 預期判斷
+- 直接產出草稿
+- 類型：UI 錯誤
+- 優先序依影響程度判斷為 P2 或 P3
+- 將截圖標示為證據
+- 不額外追問
 
 ---
 
-## Case 2: Video only, affected element unclear
+## 案例 2：只有影片，受影響元件不清楚
 
-### Raw input
-> 標題：onboarding 頁面怪怪的
+### 原始輸入
+> 標題：新手引導頁面怪怪的
 > 描述：附影片
 
-### Expected judgment
-- Do not dispatch immediately
-- Ask one blocking question
-- Question should identify which section/component is wrong and what should happen instead
+### 預期判斷
+- 不直接發派
+- 只問一個關鍵問題
+- 問題應確認是哪個區塊或元件異常，以及它原本應該如何表現
 
 ---
 
-## Case 3: Subjective preference without approved spec
+## 案例 3：沒有核准規格的主觀偏好
 
-### Raw input
-> 我覺得首頁 banner 再高一點會比較好看
+### 原始輸入
+> 我覺得首頁橫幅再高一點會比較好看
 
-### Expected judgment
-- Classify as `needs-product-decision`
-- Do not pretend it is dispatch-ready UX adjustment
-- Ask for source of truth or flag decision dependency
-
----
-
-## Case 4: Feature request without Figma or PRD
-
-### Raw input
-> 幫我加一個狀態 badge 在資訊區標題下面
-
-### Expected judgment
-- Ask whether there is Figma or product decision support
-- If absent, mark as `needs-spec`
-- Do not jump straight into implementation-ready ticket
+### 預期判斷
+- 分類為 `needs-product-decision`
+- 不要假裝這是可直接派工的 UX 調整
+- 詢問依據來源，或標記此項依賴產品決策
 
 ---
 
-## Case 5: Animation speed complaint without spec
+## 案例 4：沒有 Figma 或產品需求文件的新增功能
 
-### Raw input
+### 原始輸入
+> 幫我加一個狀態標記在資訊區標題下面
+
+### 預期判斷
+- 詢問是否有 Figma 或產品決策支持
+- 若沒有，標記為 `needs-spec`
+- 不要直接寫成可實作任務
+
+---
+
+## 案例 5：沒有規格的動畫速度反饋
+
+### 原始輸入
 > 轉場動畫太快了，感覺不順
 
-### Expected judgment
-- Treat as animation-specific intake
-- Ask the most blocking animation question if current/expected behavior is unclear
-- If reporter cannot define target spec, switch to engineer-proposes-initial-value path
+### 預期判斷
+- 視為動畫類收單
+- 若目前行為或預期行為不清楚，只問最關鍵的動畫問題
+- 若回報者無法定義目標規格，改走「工程先提出初始值」的路徑
 
 ---
 
-## Case 6: Native-style request on likely custom component
+## 案例 6：要求改成原生樣式，但可能是自訂元件
 
-### Raw input
+### 原始輸入
 > 把這個下拉選單改成 iOS 原生樣式，附截圖
 
-### Expected judgment
-- Check whether the component is custom vs native
-- If custom, state that this is component replacement, not a simple style tweak
-- Reflect higher scope/risk in draft notes
+### 預期判斷
+- 確認目前元件是自訂元件還是原生元件
+- 若是自訂元件，要說明這是元件替換，不是單純樣式微調
+- 在草稿備註中反映較高工作量與風險
 
 ---
 
-## Case 7: Vague UI element naming
+## 案例 7：模糊的 UI 元件名稱
 
-### Raw input
+### 原始輸入
 > 那個叉叉位置怪怪的
 
-### Expected judgment
-- Ask one question for page/component clarification
-- Suggest minimal fill-in structure
-- Do not fabricate a confident draft
+### 預期判斷
+- 問一個問題來確認頁面與元件
+- 可提供最小補充格式
+- 不要憑空產出看似確定的草稿
 
 ---
 
-## Case 8: Cross-platform mirrored issue
+## 案例 8：跨平台鏡像問題
 
-### Raw input
+### 原始輸入
 > iOS、Android 都有狀態卡片顏色不一致的問題
 
-### Expected judgment
-- Consider whether this is separate implementation, shared design spec, or shared backend data issue
-- Do not automatically split or merge without stating the basis
+### 預期判斷
+- 判斷這是各平台獨立實作問題、共用設計規格問題，還是共用後端資料根因
+- 不要在未說明依據時自動拆票或合併
 
 ---
 
-## Case 9: Possible duplicate
+## 案例 9：可能重複任務
 
-### Raw input
+### 原始輸入
 > 首頁提示區塊又出現了，跟上次很像，附一樣的畫面
 
-### Expected judgment
-- Flag possible duplicate or follow-up-to-existing-issue risk
-- Still produce usable draft if issue is understandable
+### 預期判斷
+- 標記可能是重複任務或既有任務後續
+- 若問題可理解，仍產出可用草稿
 
 ---
 
-## Case 10: Sensitive data present
+## 案例 10：包含敏感資料
 
-### Raw input
+### 原始輸入
 > 某筆交易案例的使用者反映被重複扣款，附帶聯絡資訊與截圖
 
-### Expected judgment
-- Warn about sensitive data first
-- Ask whether to de-identify before proceeding or continue directly
-- Do not echo full sensitive details into the draft unnecessarily
+### 預期判斷
+- 先警告含敏感資料
+- 詢問是否先去識別後繼續，或直接處理
+- 不要在草稿中重述完整敏感資料
 
 ---
 
-## Case 11: Destructive flow
+## 案例 11：破壞性流程
 
-### Raw input
+### 原始輸入
 > 使用者按取消操作後要直接清空暫存內容
 
-### Expected judgment
-- Draft possible, but suggest confirmation dialog in acceptance criteria
-- Do not force it as a hard block
+### 預期判斷
+- 可產出草稿，但在驗收條件建議加入確認提示
+- 不要強制標記為阻塞
 
 ---
 
-## Case 12: Versioned platform API
+## 案例 12：指定版本的平台 API
 
-### Raw input
+### 原始輸入
 > iOS 26 的 Liquid Glass 選單想套到這個頁面
 
-### Expected judgment
-- Verify release/version reality first
-- Consider app minimum supported iOS version
-- Include fallback behavior in acceptance criteria if needed
+### 預期判斷
+- 先確認版本與功能是否已正式可用
+- 檢查 App 最低支援版本
+- 驗收條件要包含目標版本行為與舊版本備援行為
 
 ---
 
-## Case 13: Background image seam
+## 案例 13：背景圖拼接感
 
-### Raw input
+### 原始輸入
 > 這個背景看起來有拼接感
 
-### Expected judgment
-- Ask first whether the background is intended as tiled repeat or single full-screen image
-- Do not jump to implementation blame too early
+### 預期判斷
+- 先詢問背景原本是要平鋪重複，還是單張全螢幕顯示
+- 不要過早判定為實作錯誤
 
 ---
 
-## Case 14: Multi-item mixed batch
+## 案例 14：多項混合批次
 
-### Raw input
+### 原始輸入
 > 1. 詳細頁標題消失
 > 2. 表單頁偶發閃退
 > 3. 想把等待動畫改柔和一點
 
-### Expected judgment
-- Enter batch mode
-- #1 and #2 likely draft immediately
-- #3 likely needs animation/spec judgment
-- Keep item numbering clear
+### 預期判斷
+- 進入批次模式
+- #1 與 #2 大多可直接產出草稿
+- #3 需要動畫或規格判斷
+- 保持項目編號清楚
 
 ---
 
-## Case 15: Reporter role affects wording
+## 案例 15：回報者角色影響措辭
 
-### Raw input
+### 原始輸入
 > 我是設計師，這個按鈕看起來不對，想調成稿上的樣子
 
-### Expected judgment
-- Detect designer role from context
-- Avoid telling the user to go ask design
-- Ask whether Figma/frame exists or how they plan to provide spec
+### 預期判斷
+- 從上下文識別回報者是設計師
+- 避免要求使用者再去詢問設計
+- 詢問是否有 Figma 節點、畫面，或如何提供規格
+
+---
+
+## 案例 16：模糊的動畫反饋
+
+### 原始輸入
+> 動畫看起來怪怪的
+
+### 預期判斷
+- 不直接產出草稿
+- 只問一個問題，確認受影響的頁面或元件
+- 需要時提供最小補充格式
+- 不詢問 App 版本、建置號或精確動畫秒數
+
+---
+
+## 案例 17：補充後的單純動畫速度問題
+
+### 原始輸入
+> 支付頁的背景圖跑太快
+
+### 預期判斷
+- 直接產出草稿
+- 類型：UI 動畫錯誤或 UX 微調
+- 優先序依支付流程影響判斷為 P2 或 P3
+- 視為單純速度／節奏問題，不視為完整狀態轉換問題
+- 若沒有目標動畫規格，改走「工程先提出初始值，回報者或產品驗收」
+
+---
+
+## 案例 18：同一輪對話中修正平台
+
+### 原始輸入
+> 我是要反饋給 iOS 的
+
+### 預期判斷
+- 更新既有草稿為 iOS
+- 將 iOS 設為同一輪對話的平台預設值
+- 更新標題、標籤與負責角色
+- 不重新詢問同一輪對話中已知的頁面或元件資訊
+
+---
+
+## 案例 19：已確認草稿但沒有 Jira 寫入路徑
+
+### 原始輸入
+> 確認
+
+### 預期判斷
+- 若沒有 MCP 或腳本寫入路徑，不要宣稱已建單
+- 輸出可手動貼入 Jira 的格式
+- 包含議題類型、標題、優先序、標籤、負責人／負責角色與描述
+- 除非使用者正在排查設定，否則不要暴露底層整合錯誤

@@ -1,40 +1,40 @@
-# Jira Template
+# Jira 模板
 
-## Title format
+## 標題格式
 
-`[Type][Platform/Page] concise issue statement`
+`[類型][平台/頁面] 清楚描述問題或動作`
 
-Examples:
-- [Bug][iOS/Onboarding] Re-entering page triggers unexpected collapse animation
-- [Spec][Web/A Page] Remove B element from header
-- [Request][C Page] Add B component below hero section
+範例：
+- `[Bug][iOS/新手引導] 重新進入頁面時區塊異常收合`
+- `[Spec][Web/A 頁面] 移除頁首的 B 元素`
+- `[Request][C 頁面] 在主視覺下方新增 B 元件`
 
-## Description template
+## 描述模板
 
-### Summary
-One-paragraph summary of the issue.
+### 摘要
+用一句話說明問題或需求。
 
-### Actual Behavior
-What happens now.
+### 目前行為
+現在實際發生什麼。
 
-### Expected Behavior
-What should happen instead.
+### 預期行為
+應該發生什麼。
 
-### Reproduction Steps
+### 重現步驟
 1. ...
 2. ...
 3. ...
 
-### Scope / Impact
-Who is affected and how severe it is.
+### 影響範圍
+誰受到影響，以及嚴重程度。
 
-### Evidence
-Video / screenshot / logs / link.
+### 證據
+影片 / 截圖 / 日誌 / 連結。
 
-### Acceptance Criteria
+### 驗收條件
 - ...
 - ...
 - ...
 
-### Notes
-Open questions, edge cases, or dependencies.
+### 備註
+開放問題、邊界情境或依賴事項。

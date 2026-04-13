@@ -2,18 +2,27 @@
 import argparse
 import json
 
-from _jira_common import build_api_url, build_headers, get_base_url, load_team_config, request_json, resolve_transition_id
+from _jira_common import (
+    build_api_url,
+    build_headers,
+    get_base_url,
+    load_team_config,
+    request_json,
+    resolve_transition_id,
+    summarize_jira_response,
+)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Move a Jira issue to a new status via a workflow transition.")
-    parser.add_argument("config_path", help="path to team-config JSON file")
-    parser.add_argument("issue_key", help="Jira issue key, e.g. APP-123")
+    parser = argparse.ArgumentParser(description="透過工作流程轉換移動 Jira 議題狀態。")
+    parser.add_argument("config_path", help="team-config JSON 檔路徑")
+    parser.add_argument("issue_key", help="Jira 議題 key，例如 APP-123")
     parser.add_argument(
         "transition_ref",
-        help="transition id, logical key from statusTransitionMap in config, or status name",
+        help="轉換 id、設定檔 statusTransitionMap 的邏輯鍵，或狀態名稱",
     )
-    parser.add_argument("--dry-run", action="store_true", help="resolve transition id but do not call Jira")
+    parser.add_argument("--dry-run", action="store_true", help="只解析轉換 id，不呼叫 Jira")
+    parser.add_argument("--verbose", action="store_true", help="包含完整 Jira 回應")
     return parser.parse_args()
 
 
@@ -43,7 +52,9 @@ def main() -> None:
             headers=headers,
             payload={"transition": {"id": transition_id}},
         )
-        result["response"] = response
+        result.update(
+            summarize_jira_response(response, base_url=base_url, issue_key=args.issue_key, verbose=args.verbose)
+        )
 
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

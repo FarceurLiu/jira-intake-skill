@@ -1,28 +1,28 @@
-# Assignee Rules
+# 負責人規則
 
-Assign by ownership rule, not personal guess.
+依負責歸屬判斷，不憑個人猜測指派。
 
-## Recommended mapping fields
+## 建議對應欄位
 
-- platform: iOS / Android / Web / Backend
-- module: auth / onboarding / form / settings / admin / content-management
-- change type: bug / feature / copy / design / analytics
+- 平台：iOS / Android / Web / Backend
+- 模組：登入、新手引導、表單、設定、管理後台、內容管理
+- 變更類型：錯誤、需求、文案、設計、分析
 
-## Example rule shapes
+## 規則範例
 
-- iOS UI bug -> iOS owner
-- Android rendering issue -> Android owner
-- Shared API contract issue -> backend owner
-- Copy-only fix -> product or content owner
-- Ambiguous ownership -> triage lead or PM
+- iOS UI 錯誤 -> iOS 負責人
+- Android 顯示問題 -> Android 負責人
+- 共用 API 契約問題 -> 後端負責人
+- 純文案修正 -> 產品或內容負責人
+- 歸屬不明 -> 收單負責人或 PM
 
-## If the mapping is not yet formalized
+## 尚未建立正式對應表時
 
-Return:
-- Suggested owner type
-- Why this owner type fits
-- Missing mapping needed for automatic assignment
+回傳：
+- 建議負責角色
+- 為什麼適合此負責角色
+- 若要自動指派，還缺哪個對應規則
 
-## Recommendation
+## 建議
 
-Store real team mappings in a separate private reference later, not inside the public generic skill.
+實際團隊成員與指派對應應存放在私有 reference，不要寫進公開通用技能。

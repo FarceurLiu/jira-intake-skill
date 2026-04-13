@@ -1,21 +1,21 @@
-# Risk and Dependency Rules
+# 風險與依賴規則
 
-Use this file for ownership, sensitive data, destructive actions, and completion dependency judgment.
+當需要判斷負責歸屬、敏感資料、破壞性操作或完成依賴時，使用此文件。
 
-## Ownership rules
+## 負責歸屬規則
 
-- Assign by ownership rule, not personal guess.
-- If ownership is unclear, mark as pending assignment.
+- 依負責歸屬判斷，不憑個人猜測指派。
+- 若歸屬不清楚，標記為待指派。
 
-## Completion/dependency rules
+## 完成與依賴規則
 
-- If the issue involves destructive flows such as cancel action, clear draft content, or force logout, suggest a confirmation dialog in acceptance criteria, but do not force it.
-- If acceptance depends on another role's deliverable, write the dependency explicitly.
-- If completion requires two roles in sequence, write both steps clearly.
-- If completion depends on the reporter producing assets or specs, flag that dependency in the draft.
+- 若問題涉及破壞性流程，例如取消操作、清空草稿、強制登出，在驗收條件中建議加入確認提示，但不要強制阻擋。
+- 若驗收依賴另一個角色的交付物，要明確寫出依賴。
+- 若完成需要兩個角色依序處理，要清楚寫出處理順序。
+- 若完成依賴回報者提供素材或規格，要在草稿中標記該依賴。
 
-## Sensitive data boundary
+## 敏感資料邊界
 
-- If the report contains personal data, transaction identifiers, financial information, or screenshots containing them, warn first and ask whether to de-identify before proceeding.
-- Pass only the minimum context needed for intake judgment.
-- Do not log or forward full sensitive payloads or full Jira responses containing sensitive data.
+- 若回報包含個資、交易識別碼、金融資訊，或含有這些內容的截圖，先警告並詢問是否去識別後再繼續。
+- 只傳遞收單判斷所需的最小上下文。
+- 不記錄或轉送完整敏感資料內容，也不輸出完整 Jira 回應。

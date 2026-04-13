@@ -166,15 +166,15 @@ git -C "${CODEX_HOME:-$HOME/.codex}/skills/jira-intake" pull
 > **[UX][iOS] 設定頁主圖示對齊異常，應置中顯示**
 >
 > 問題描述：iOS 設定頁主圖示目前靠左對齊，預期行為為置中顯示。
-> 優先序：中
+> 優先序：P3（低）。原因：屬於視覺對齊問題，未阻擋流程。
 > 負責人：iOS 工程師
-> 標籤：ios, ui, alignment
+> 標籤：`iOS`、`UI`、`對齊`
 >
 > 這樣理解對嗎？確認後我列出看板讓你選。
 
 **你說：** 確認
 
-**skill 接著問：** 選看板 → 選 sprint → 選負責人 → 建單完成，回傳 ticket 連結
+**skill 接著問：** 選看板 → 選衝刺 → 選負責人 → 建單完成，回傳任務連結
 
 ---
 
@@ -194,7 +194,7 @@ git -C "${CODEX_HOME:-$HOME/.codex}/skills/jira-intake" pull
 
 ```bash
 # 1. 複製設定範本
-cp config/team-config.private.sample.json config/team-config.private.json
+cp config/team-config.example.json config/team-config.private.json
 
 # 2. 填入 Jira 網址、專案代碼、Email
 # 用任意編輯器開啟 config/team-config.private.json 修改

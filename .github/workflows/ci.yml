@@ -17,7 +17,18 @@ jobs:
           python-version: "3.x"
 
       - name: Check setup script syntax
-        run: bash -n scripts/setup_jira_token.sh
+        run: |
+          bash -n scripts/setup_jira_token.sh
+          bash -n scripts/sync_installed_skill.sh
 
       - name: Compile Python scripts
         run: python3 -m py_compile scripts/*.py
+
+      - name: Check public sample references
+        run: |
+          if grep -R "team-config[.]private[.]sample[.]json" . \
+            --exclude-dir=.git \
+            --exclude-dir=.local-archive; then
+            echo "Do not reference ignored private sample files in public docs or scripts."
+            exit 1
+          fi

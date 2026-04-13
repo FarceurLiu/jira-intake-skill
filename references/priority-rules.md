@@ -1,37 +1,37 @@
-# Priority Rules
+# 優先序規則
 
-Use priority to express business urgency plus user impact, not emotional wording.
+優先序用來表達業務急迫性與使用者影響，不用來反映語氣強弱。
 
-## Suggested model
+## 建議模型
 
 ### P0
-- Core flow blocked
-- Data loss, critical save failure, login failure, app crash on major flow
-- Large user impact or urgent release blocker
+- 核心流程被阻擋
+- 資料遺失、關鍵儲存失敗、登入失敗、主要流程閃退
+- 大量使用者受影響，或屬於緊急上線阻擋
 
 ### P1
-- Important flow degraded
-- Major UX breakage, but workaround exists
-- High visibility issue in active testing or imminent release
+- 重要流程受損
+- 明顯 UX 破壞，但仍有替代方式
+- 正在測試或即將上線的高可見度問題
 
 ### P2
-- Noticeable problem with moderate impact
-- Non-core flow issue
-- Improvement needed before wider rollout, but not an immediate blocker
+- 明顯可感知的問題，中等影響
+- 非核心流程問題
+- 上線擴大前需要修正，但不是立即阻擋
 
 ### P3
-- Cosmetic issue
-- Nice-to-have adjustment
-- Low-frequency or low-impact cleanup
+- 視覺或文案細節問題
+- 體驗微調
+- 低頻或低影響清理
 
-## Priority check dimensions
+## 判斷維度
 
-1. How many users or testers are affected
-2. Whether the core flow is blocked
-3. Whether a workaround exists
-4. Whether the issue affects release confidence
-5. Whether the issue is bug, spec gap, or polish
+1. 受影響的使用者或測試者數量
+2. 是否阻擋核心流程
+3. 是否有替代方式
+4. 是否影響上線信心
+5. 問題屬於錯誤、規格缺口，還是體驗微調
 
-## Output guidance
+## 輸出規則
 
-Always include a one-line reason for the suggested priority.
+一定要附上一句優先序理由。

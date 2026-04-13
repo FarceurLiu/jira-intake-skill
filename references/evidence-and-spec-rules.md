@@ -1,38 +1,38 @@
-# Evidence and Spec Rules
+# 證據與規格規則
 
-Use this file when deciding whether the report has enough evidence and valid source of truth.
+當需要判斷回報是否有足夠證據與有效依據來源時，使用此文件。
 
-## Core normalization rules
+## 核心標準化規則
 
-- Separate actual behavior from expected behavior.
-- Flag contradictions between title and description.
-- When bug vs feature is unclear, do not over-infer product intent.
-- If the title says an element "appears", first verify whether the real issue is that it should not exist.
-- If the user provides app version, build number, or environment, include it. If not, do not ask for it.
-- Ask at most one follow-up question, and only the most blocking one.
+- 分開描述目前行為與預期行為。
+- 若標題與描述互相矛盾，要明確標記。
+- 若錯誤與需求不易區分，不要過度推測產品意圖。
+- 若標題說某個元素「出現」，要先判斷真正問題是「不該出現」還是「應該出現但在某些情境缺失」。
+- 若使用者提供 App 版本、建置號或環境，納入草稿；若未提供，不主動追問。
+- 最多只問一個補充問題，而且只問最關鍵的一題。
 
-## Source-of-truth rules
+## 依據來源規則
 
-- If expected behavior depends on design or product intent, require a source of truth such as Figma with node-id, PRD, or confirmed product decision.
-- If the request is feature addition or UX adjustment with no valid source of truth, ask one question:
+- 若預期行為依賴設計或產品意圖，需要有效依據來源，例如含明確節點的 Figma、產品需求文件，或已確認的產品決策。
+- 若是新增功能或 UX 調整，且沒有有效依據來源，只問一題：
   - 這個功能有 Figma 或產品決策支持嗎？有的話附上；沒有的話票會標 `needs-spec`，派工前需先補。
-- A Figma link is valid only when it includes a clear `node-id` or equivalent frame anchor and the report identifies the target frame or component.
-- A root project link without a target frame is weak evidence. Ask for the specific frame.
+- Figma 連結只有在包含明確 `node-id` 或等效畫面定位，且回報指出目標畫面或元件時，才算強依據。
+- 只有專案根連結、沒有目標畫面時，屬於弱證據。請使用者補上具體畫面。
 
-## Preference vs decision
+## 偏好與決策
 
-- If the report uses subjective language such as 「會比較好」「我認為」「建議」「比較好看」「偏好」 or `better` / `prefer`, and there is no approved spec, classify as `needs-product-decision`, not dispatch-ready UX adjustment.
-- If the report is exploratory or half-formed, such as 「在想」「是不是」「會不會」「好像」「有沒有辦法」「可不可以考慮」 or `maybe` / `wondering if`, classify as `needs-product-decision`.
+- 若回報使用「會比較好」「我認為」「建議」「比較好看」「偏好」等主觀語氣，且沒有核准規格，分類為 `needs-product-decision`，不要寫成可直接發派的 UX 調整。
+- 若回報是探索式或半成形想法，例如「在想」「是不是」「會不會」「好像」「有沒有辦法」「可不可以考慮」，分類為 `needs-product-decision`。
 
-## Evidence rules
+## 證據規則
 
-- A video alone is insufficient when the issue remains unclear.
-- A video without timestamp, screen marking, or explicit symptom description is weak evidence.
-- If a UI visual issue is reported with no screenshot, suggest attaching one, but do not block the flow.
-- If screenshots or video exist, mention them as evidence in the draft and attach them when the execution path supports attachments.
+- 只有影片，且問題仍不清楚時，證據不足。
+- 影片沒有時間點、畫面標記或明確症狀描述時，屬於弱證據。
+- UI 視覺問題沒有截圖時，可建議補截圖，但不阻擋流程。
+- 若已有截圖或影片，要在草稿中標示為證據；若執行路徑支援附件，建單時一併附上。
 
-## Platform/version compatibility rules
+## 平台與版本相容規則
 
-- If the report references a specific OS version, API, or design language, verify release status with web search before relying on it.
-- After confirming availability, check the app's minimum supported version and include fallback behavior if needed.
-- When a feature depends on a versioned API, acceptance criteria should explicitly cover both target-version behavior and fallback behavior on older supported versions.
+- 若回報引用特定作業系統版本、API 或設計語言，先查詢最新可信來源確認是否已正式可用。
+- 確認可用後，再檢查 App 最低支援版本，必要時加入舊版本備援行為。
+- 若功能依賴特定版本 API，驗收條件要同時涵蓋目標版本行為與舊版支援行為。

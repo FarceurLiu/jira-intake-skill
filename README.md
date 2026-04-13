@@ -126,7 +126,7 @@ Example prompts:
 ### Option B: enable direct Jira execution
 1. Copy the private config sample:
    ```bash
-   cp config/team-config.private.sample.json config/team-config.private.json
+   cp config/team-config.example.json config/team-config.private.json
    ```
 2. Fill in your Jira base URL, project key, and email.
 3. Create `config/.env` with your API token:
