@@ -64,7 +64,7 @@ description: Use when someone submits product feedback, a bug report, a QA findi
    - MCP 可用：`這樣理解對嗎？確認後我直接建單。`
    - Scripts 可用：`這樣理解對嗎？確認後用 scripts 建單。`
    - 僅手動路徑可用：
-     > 目前沒有可寫入的 Jira 路徑，我會輸出完整的手動格式讓你貼入。如果你有 Atlassian 帳號且可建立個人 API token，之後也可以做一次性設定直接建單，需要的話告訴我。
+     > 這個 skill 支援直接寫入 Jira，但目前這個環境尚未完成可寫入路徑的設定，所以我會先輸出完整的手動格式讓你貼入。如果你有 Atlassian 帳號且可建立個人 API token，之後也可以做一次性設定直接建單，需要的話告訴我。
    - 批次模式沿用相同欄位結構，並要求用戶一次確認或指出要修改的編號
 
 6. 用戶確認後再派工：
@@ -81,7 +81,7 @@ description: Use when someone submits product feedback, a bug report, a QA findi
 ## 寫入路徑與設定觸發
 
 - 若用戶只是要草稿，不主動推設定。
-- 若用戶明確要建立或寫入 Jira，且 MCP 不可用、scripts 設定也缺失，先問：
+- 若用戶明確要建立或寫入 Jira，且 MCP 不可用、scripts 設定也缺失，應明確說明是「此環境尚未完成 Jira 連線設定」，不是 skill 沒有這個能力，然後再問：
   > 你可以在 Atlassian 帳號設定（id.atlassian.com）裡建立個人 API token 嗎？這跟管理員權限無關，一般帳號通常都可以建。（若公司有限制則無法）
 - 若可以，再引導執行 `scripts/setup_jira_token.sh`。
 - 若不確定、公司限制、或不想設定，直接走手動路徑，不再追問。
